@@ -7,14 +7,21 @@ public class Point : MonoBehaviour
 {
     [SerializeField] private GameObject krest;
     [SerializeField] private GameObject nolik;
-    [SerializeField] private Button _click;
+    [SerializeField] private Button click;
     [SerializeField] private int index;
 
     void Start()
     {
-        _click.onClick.AddListener(() =>
+        ClearPoint();
+        click.onClick.AddListener(() =>
         {
             Debug.Log(index);
         });
+    }
+
+    public void ClearPoint()
+    {
+        krest.SetActive(false);
+        nolik.SetActive(false);
     }
 }

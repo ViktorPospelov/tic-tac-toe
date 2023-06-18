@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class GameForm : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject[] points;
+
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
     }
 }
