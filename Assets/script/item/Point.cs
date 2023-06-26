@@ -12,14 +12,20 @@ public class Point : MonoBehaviour
 
     void Start()
     {
+        GameForm.Click += Click;
         ClearPoint();
         click.onClick.AddListener(() =>
         {
-            krest.SetActive(GameForm.IsKrest);
-            nolik.SetActive(!GameForm.IsKrest);
+            Click(index);
             GameForm.Click?.Invoke(index);
-            Debug.Log(index);
         });
+    }
+
+    private void Click(int num)
+    {
+        if(num!= index) return;
+        krest.SetActive(GameForm.IsKrest);
+        nolik.SetActive(!GameForm.IsKrest);
     }
 
     public void ClearPoint()
