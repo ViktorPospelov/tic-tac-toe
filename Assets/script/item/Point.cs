@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class Point : MonoBehaviour
     [SerializeField] private Button click;
     [SerializeField] private int index;
 
-    void Start()
+    void OnEnable()
     {
         GameForm.Click += Click;
         ClearPoint();
@@ -18,19 +19,28 @@ public class Point : MonoBehaviour
         {
             Click(index);
             GameForm.Click?.Invoke(index);
+            
         });
     }
 
     private void Click(int num)
     {
         if(num!= index) return;
-        krest.SetActive(GameForm.IsKrest);
-        nolik.SetActive(!GameForm.IsKrest);
+        krest.SetActive(!GameForm.IsKrest);
+        nolik.SetActive(GameForm.IsKrest);
+        click.onClick.RemoveAllListeners();
     }
 
     public void ClearPoint()
     {
+        
         krest.SetActive(false);
         nolik.SetActive(false);
+        click.onClick.RemoveAllListeners();
+    }
+
+    private void OnDisable()
+    {
+        GameForm.Click -= Click;
     }
 }

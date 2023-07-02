@@ -11,7 +11,7 @@ public class CheckWin
         DiagLeft, DiagRight,
         Hori1, Hori2, Hori3,
         Vert1, Vert2, Vert3,
-        Non,
+        Non,DeaHeat
     }
 
     public WinString Check(int[] winerposition)
@@ -44,7 +44,16 @@ public class CheckWin
                 if (i == 2) return WinString.Vert3;
             }
         }
+        var LastWinString = CheckWinString();
+        return LastWinString;
+    }
 
-        return WinString.Non;
+    private WinString CheckWinString()
+    {
+        foreach (var pos in winerPosition)
+        {
+            if (pos == 0) return WinString.Non;
+        }
+        return WinString.DeaHeat;
     }
 }
