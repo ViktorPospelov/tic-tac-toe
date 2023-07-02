@@ -23,7 +23,7 @@ MonoBehaviour:
   metricaCounterID: 0
   AdWhenLoadingScene: 0
   showFirstAd: 1
-  adDisplayCalls: 1
+  adDisplayCalls: 0
   fullscreenAdInterval: 60
   durationOfAdSimulation: 0.5
   LocalizationEnable: 0
@@ -118,10 +118,10 @@ MonoBehaviour:
     it: 
     de: 
     hi: 
-  debug: 0
+  debug: 1
   archivingBuild: 1
   bakcgroundImage: 2
   pixelRatioEnable: 0
   pixelRatioValue: 1
   SDKStartDelay: 0
-  staticRBTInGame: 0
+  staticRBTInGame: 1
