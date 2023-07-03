@@ -29,7 +29,7 @@ public class GameForm : MonoBehaviour
     public static bool IsKrest => isKrest;
     private static bool isKrest;
 
-    private static bool onBot;
+    public bool onBot;
 
     private static bool LangRu = true;
 
