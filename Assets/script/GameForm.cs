@@ -19,6 +19,7 @@ public class GameForm : MonoBehaviour
     [SerializeField] private TextMeshProUGUI O;
     [SerializeField] private TextMeshProUGUI deaHeat;
 
+    [SerializeField] private WinLine winLine;
     [SerializeField] private GameObject boom;
     private int[] polyaPosition;
     private CheckWin _checkWin;
@@ -47,7 +48,7 @@ public class GameForm : MonoBehaviour
 
     private void StartGame()
     {
-       
+        winLine.ClearWinLine();
         deaHeat.gameObject.SetActive(false);
         X.gameObject.SetActive(false);
         O.gameObject.SetActive(false);
@@ -78,6 +79,8 @@ public class GameForm : MonoBehaviour
 
         isKrest = !isKrest;
         if (!IsKrest && onBot) StartCoroutine(MoveBot());
+        if(state!= CheckWin.WinString.Non)winLine.gameObject.SetActive(true);
+        winLine.SetWineLine(state, winLine.gameObject);
     }
 
 
