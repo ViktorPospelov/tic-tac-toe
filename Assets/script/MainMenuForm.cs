@@ -27,7 +27,7 @@ public class MainMenuForm : MonoBehaviour
         });
         two.onClick.AddListener(() =>
         {
-            gameForm.onBot = true;
+            gameForm.onBot = false;
             gameForm.gameObject.SetActive(true);
             gameObject.SetActive(false);
         });
