@@ -52,7 +52,7 @@ public class GameForm : MonoBehaviour
         deaHeat.gameObject.SetActive(false);
         X.gameObject.SetActive(false);
         O.gameObject.SetActive(false);
-        onBot = false;
+       // onBot = false;
         Block.gameObject.SetActive(false);
         isKrest = onBot;
         Click += OnClick;
