@@ -21,10 +21,11 @@ public class GameForm : MonoBehaviour
 
     [SerializeField] private WinLine winLine;
     [SerializeField] private GameObject boom;
+    [SerializeField] private GameObject mainMenu;
     private int[] polyaPosition;
     private CheckWin _checkWin;
     private Bot _Bot;
-    private int _clevernessBot = 10;
+    private int _clevernessBot = 5;
 
     public static Action<int> Click;
     public static bool IsKrest => isKrest;
@@ -42,6 +43,7 @@ public class GameForm : MonoBehaviour
     public void ButtonStartNewGame()
     {
         if (YandexGame.nowFullAd) YandexGame.FullscreenShow();
+        mainMenu.SetActive(true);
         gameObject.SetActive(false);
     }
    
@@ -105,15 +107,17 @@ public class GameForm : MonoBehaviour
         }
         else
         {
-            if (isKrest)
+            if (!isKrest)
             {
                 O.text = LangRu ? "Побидил 0!" : "Winer Red!";
                 O.gameObject.SetActive(true);
+                if (onBot) _clevernessBot++;
             }
             else
             {
                 X.text = LangRu ? "Побидил X!" : "Winer Blue!";
                 X.gameObject.SetActive(true);
+                if (onBot) _clevernessBot--;
             }
         }
     }
