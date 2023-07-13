@@ -42,6 +42,7 @@ public class GameForm : MonoBehaviour
 
     public void ButtonStartNewGame()
     {
+        if(onBot) return;
         if (YandexGame.nowFullAd) YandexGame.FullscreenShow();
         mainMenu.SetActive(true);
         gameObject.SetActive(false);
@@ -56,7 +57,7 @@ public class GameForm : MonoBehaviour
         O.gameObject.SetActive(false);
        // onBot = false;
         Block.gameObject.SetActive(false);
-        isKrest = onBot;
+        isKrest = true;
         Click += OnClick;
         _checkWin = new CheckWin();
         _Bot = new Bot();
@@ -70,6 +71,7 @@ public class GameForm : MonoBehaviour
         var state = _checkWin.Check(polyaPosition);
         if (state != CheckWin.WinString.Non)
         {
+            onBot = false;
             Block.gameObject.SetActive(true);
             if (state != CheckWin.WinString.DeaHeat) boom.SetActive(true);
             SetWiner(state);
@@ -94,7 +96,7 @@ public class GameForm : MonoBehaviour
             var bm = _Bot.MoveBot(polyaPosition, _clevernessBot);
             Debug.Log(bm);
             if (!IsKrest) Click?.Invoke(bm);
-            Block.gameObject.SetActive(false);
+            if (_checkWin.Check(polyaPosition) == CheckWin.WinString.Non) Block.gameObject.SetActive(false);
         }
     }
 
