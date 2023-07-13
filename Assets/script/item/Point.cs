@@ -26,8 +26,8 @@ public class Point : MonoBehaviour
     private void Click(int num)
     {
         if(num!= index) return;
-        krest.SetActive(!GameForm.IsKrest);
-        nolik.SetActive(GameForm.IsKrest);
+        krest.SetActive(GameForm.IsKrest);
+        nolik.SetActive(!GameForm.IsKrest);
         click.onClick.RemoveAllListeners();
     }
 
