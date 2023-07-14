@@ -38,6 +38,8 @@ public class GameForm : MonoBehaviour
     void OnEnable()
     {
         StartGame();
+                
+        LangRu = YandexGame.EnvironmentData.language == "ru";
     }
 
     public void ButtonStartNewGame()
