@@ -20,7 +20,7 @@ public class Bot
         {
             var i = Random.Range(0, _position.Length);
             if (_position[i] != 0) i = 4;
-            return _position[i] != 0 ? 2 : 7;
+            return _position[i] != 0 ? 2 : i;
         }
 
         if (Random.Range(0, _position.Length) > cleverness)
