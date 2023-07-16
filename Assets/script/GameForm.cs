@@ -45,7 +45,7 @@ public class GameForm : MonoBehaviour
     public void ButtonStartNewGame()
     {
         if(onBot) return;
-        if (YandexGame.nowFullAd) YandexGame.FullscreenShow();
+        YandexGame.FullscreenShow();
         mainMenu.SetActive(true);
         gameObject.SetActive(false);
     }
