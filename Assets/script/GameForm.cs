@@ -113,13 +113,13 @@ public class GameForm : MonoBehaviour
         {
             if (!isKrest)
             {
-                O.text = LangRu ? "Побидил 0!" : "Winer Red!";
+                O.text = LangRu ? "Победил 0!" : "Winner Red!";
                 O.gameObject.SetActive(true);
                 if (onBot) _clevernessBot++;
             }
             else
             {
-                X.text = LangRu ? "Побидил X!" : "Winer Blue!";
+                X.text = LangRu ? "Победил X!" : "Winner Blue!";
                 X.gameObject.SetActive(true);
                 if (onBot) _clevernessBot--;
             }
