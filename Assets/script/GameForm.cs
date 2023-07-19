@@ -82,9 +82,8 @@ public class GameForm : MonoBehaviour
         {
             Block.gameObject.SetActive(onBot);
         }
-
         isKrest = !isKrest;
-        if (!IsKrest && onBot) StartCoroutine(MoveBot());
+        if (!isKrest && onBot) StartCoroutine(MoveBot());
         if(state!= CheckWin.WinString.Non)winLine.gameObject.SetActive(true);
         winLine.SetWineLine(state, winLine.gameObject);
     }
@@ -97,7 +96,7 @@ public class GameForm : MonoBehaviour
         {
             var bm = _Bot.MoveBot(polyaPosition, _clevernessBot);
             Debug.Log(bm);
-            if (!IsKrest) Click?.Invoke(bm);
+            if (!isKrest) Click?.Invoke(bm);
             if (_checkWin.Check(polyaPosition) == CheckWin.WinString.Non) Block.gameObject.SetActive(false);
         }
     }

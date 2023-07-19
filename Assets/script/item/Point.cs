@@ -17,23 +17,21 @@ public class Point : MonoBehaviour
         ClearPoint();
         click.onClick.AddListener(() =>
         {
-            Click(index);
+            //Click(index);
             GameForm.Click?.Invoke(index);
-            
         });
     }
 
     private void Click(int num)
     {
-        if(num!= index) return;
-        krest.SetActive(GameForm.IsKrest);
-        nolik.SetActive(!GameForm.IsKrest);
+        if (num != index) return;
+        krest.SetActive(!GameForm.IsKrest);
+        nolik.SetActive(GameForm.IsKrest);
         click.onClick.RemoveAllListeners();
     }
 
     public void ClearPoint()
     {
-        
         krest.SetActive(false);
         nolik.SetActive(false);
         click.onClick.RemoveAllListeners();
