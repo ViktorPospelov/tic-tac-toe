@@ -16,9 +16,12 @@ public class MainMenuForm : MonoBehaviour
     [SerializeField] private Button one;
     [SerializeField] private Button two;
     [SerializeField] private GameForm gameForm;
+    [SerializeField] private GameForm gameFormDesc;
 
     private void Start()
     {
+        gameForm = Screen.width > Screen.height ? gameFormDesc : gameForm;
+        
         one.onClick.AddListener(() =>
         {
             gameForm.onBot = true;
